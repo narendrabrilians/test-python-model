@@ -3,6 +3,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import io
+import os
 
 # Inisialisasi Flask
 app = Flask(__name__)
@@ -20,7 +21,13 @@ def preprocess_image(image, target_size=(224, 224)):
     image = np.expand_dims(image, axis=0)  # Tambahkan batch dimension
     return image
 
-@app.route('/predict', methods=['POST'])
+@app.route('/')
+def hello_world():
+    """
+    Endpoint untuk mengembalikan 'Hello World' sebagai respons.
+    """
+    return "Hello World"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """
@@ -53,4 +60,6 @@ def predict():
 
 # Jalankan server Flask
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Gunakan port yang diberikan App Engine, atau default ke 8080 untuk pengembangan lokal
+    port = int(os.environ.get("PORT", 8080)) 
+    app.run(host='0.0.0.0', port=port)
