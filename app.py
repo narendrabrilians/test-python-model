@@ -60,6 +60,4 @@ def predict():
 
 # Jalankan server Flask
 if __name__ == '__main__':
-    # Gunakan port yang diberikan App Engine, atau default ke 8080 untuk pengembangan lokal
-    port = int(os.environ.get("PORT", 8080)) 
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=8080)
