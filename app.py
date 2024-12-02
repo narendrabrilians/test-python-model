@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 # Load model yang sudah disimpan
-model = tf.keras.models.load_model('./model/dead_chicken_model.h5')
+model = tf.keras.models.load_model('./model/dead_chicken.h5')
 
 # Preprocessing fungsi untuk gambar
 def preprocess_image(image, target_size=(224, 224)):
