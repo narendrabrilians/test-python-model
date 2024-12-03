@@ -21,13 +21,6 @@ def preprocess_image(image, target_size=(224, 224)):
     image = np.expand_dims(image, axis=0)  # Tambahkan batch dimension
     return image
 
-@app.route('/')
-def hello_world():
-    """
-    Endpoint untuk mengembalikan 'Hello World' sebagai respons.
-    """
-    return "Hello World"
-
 @app.route('/predict', methods=['POST'])
 def predict():
     """
